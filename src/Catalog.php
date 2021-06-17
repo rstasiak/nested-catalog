@@ -7,6 +7,7 @@ namespace NestedCatalog;
 class Catalog
 {
 
+    /** @var \NestedCatalog\Category[] */
     private array $categories = [];
     private int $index = 0;
     private array $parentIndex;
@@ -88,6 +89,25 @@ class Catalog
     public function getCategory(string $name)
     {
         return $this->categories[$name];
+    }
+
+    public function getData() {
+
+        foreach($this->categories as $category)
+        {
+            $data[] = [
+
+                'name' => $category->getName(),
+                'lft' => $category->getLft(),
+                'rgt' => $category->getRgt(),
+                'parent' => $this->parentIndex[$category->getName()] ?? null
+
+            ];
+        }
+
+        return $data;
+
+
     }
 
     public function toJson() {

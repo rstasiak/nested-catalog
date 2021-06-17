@@ -9,9 +9,9 @@ class Category
 
     private array $categories = [];
 
-    private int $lft;
+    private int $lft = 0;
 
-    private int $rgt;
+    private int $rgt = 0;
 
     private string $name;
 
@@ -47,6 +47,34 @@ class Category
     {
         $this->rgt = $rgt;
     }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLft(): int
+    {
+        return $this->lft;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRgt(): int
+    {
+        return $this->rgt;
+    }
+
+
+
+
 
 
 }
