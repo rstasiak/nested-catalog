@@ -90,24 +90,12 @@ class Catalog
         return $this->categories[$name];
     }
 
-    public function getSubCategories(string $parent): array
-    {
-        $lft = $this->categories[$parent]->getLft();
-        $rgt = $this->categories[$parent]->getRgt();
+    public function toJson() {
 
-        $data = [];
-
-        foreach($this->categories as $category)
-        {
-            if ($category->getLft() > $lft && $category->getRgt() < $rgt)
-            {
-                $data[] = $category;
-            }
-        }
-
-        return $data;
+        return json_encode($this->parentIndex);
 
     }
+
 
     public function log(string $log) {
 
