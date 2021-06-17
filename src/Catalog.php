@@ -91,9 +91,22 @@ class Catalog
         return $this->categories[$name];
     }
 
-    public function getCategories() {
+    public function getCategories(string $parent) {
 
-        return $this->categories;
+        $parent = $this->categories[$parent];
+
+        $data = [];
+
+        foreach($this->categories as $category)
+        {
+            if ($category->getLft() > $parent->getLft() && $category->getRgt() < $parent->getRgt())
+            {
+                $data[] = $category;
+            }
+
+        }
+
+        return $data;
 
 
     }
