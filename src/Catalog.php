@@ -91,21 +91,9 @@ class Catalog
         return $this->categories[$name];
     }
 
-    public function getData() {
+    public function getCategories() {
 
-        foreach($this->categories as $category)
-        {
-            $data[] = [
-
-                'name' => $category->getName(),
-                'lft' => $category->getLft(),
-                'rgt' => $category->getRgt(),
-                'parent' => $this->parentIndex[$category->getName()] ?? null
-
-            ];
-        }
-
-        return $data;
+        return $this->categories;
 
 
     }
@@ -115,6 +103,8 @@ class Catalog
         return json_encode($this->parentIndex);
 
     }
+
+
 
 
     public function log(string $log) {
