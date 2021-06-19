@@ -122,7 +122,7 @@ class Catalog
 
     public function log(string $log) {
 
-        echo $log . "\n";
+        //echo $log . "\n";
 
     }
 
