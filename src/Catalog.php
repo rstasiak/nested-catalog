@@ -20,7 +20,7 @@ class Catalog
 
     public function createCategory(string $name, string $parentName = 'root')
     {
-        $this->categories[$name] = new Category($name);
+        $this->categories[$name] = new Category($name, $parentName);
         $this->categories[$parentName]->add($name);
         $this->parentIndex[$name] = $parentName;
     }

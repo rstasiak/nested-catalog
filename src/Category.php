@@ -15,10 +15,13 @@ class Category
 
     private string $name;
 
+    private ?string $parent;
 
-    public function __construct(string $name)
+
+    public function __construct(string $name, ?string $parent = null)
     {
         $this->name = $name;
+        $this->parent = $parent;
     }
 
     public function add(string $child)
@@ -71,6 +74,16 @@ class Category
     {
         return $this->rgt;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getParent(): ?string
+    {
+        return $this->parent;
+    }
+
+
 
 
 
